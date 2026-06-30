@@ -1,0 +1,7 @@
+{
+  "name": "fantasy-cabinet",
+  "private": true,
+  "dependencies": {
+    "@vercel/og": "latest"
+  }
+}
