@@ -370,7 +370,7 @@
 
   // Edit these to change the link and caption used when sharing.
   var SHARE_URL = "https://www.bestforbritain.org/fantasy_cabinet";
-  var SHARE_TEXT = "I've picked my Fantasy Cabinet for Britain's next government. Build yours:";
+  var SHARE_TEXT = "Take a look at my cabinet! What would you change?\n\nUse Best for Britain's new tool here:";
   // Once the preview service is deployed, set this to its /share endpoint
   // (e.g. "https://share.bestforbritain.org/share"). Leave "" to share the
   // plain page link. Either way the cabinet is encoded into the URL.
@@ -835,36 +835,40 @@
     return !!(file && navigator.canShare && navigator.canShare({files:[file]}));
   }
 
+  function isMobileDevice(){
+    if(navigator.userAgentData && typeof navigator.userAgentData.mobile === "boolean") return navigator.userAgentData.mobile;
+    return /Mobi|Android|iPhone|iPod|iPad/i.test(navigator.userAgent);
+  }
+
   function shareTo(platform){
-    withBusy(function(){
-      return getShareFile().then(function(file){
-        var shareUrl = buildShareUrl();
-        // Phones (and some browsers): hand the real image to the OS share sheet,
-        // which lets the user pick Bluesky / X / Facebook / Instagram with the image attached.
-        if(canShareFiles(file)){
-          return navigator.share({
-            files:[file], title:"My Fantasy Cabinet", text: SHARE_TEXT + " " + shareUrl
-          }).catch(function(){ /* user cancelled */ });
-        }
-        // Desktop: open the platform composer with the personalised link.
-        // The preview image is generated automatically by the share service.
-        var t = encodeURIComponent(SHARE_TEXT);
-        var u = encodeURIComponent(shareUrl);
-        var open = null, note = "Opening the post \u2014 your cabinet preview loads automatically.";
-        if(platform === "x"){
-          open = "https://twitter.com/intent/tweet?text=" + t + "&url=" + u;
-        } else if(platform === "bluesky"){
-          open = "https://bsky.app/intent/compose?text=" + encodeURIComponent(SHARE_TEXT + " " + shareUrl);
-        } else if(platform === "facebook"){
-          open = "https://www.facebook.com/sharer/sharer.php?u=" + u;
-        } else if(platform === "instagram"){
-          note = "Instagram has no link previews \u2014 your image was saved, open the app to post it.";
+    var shareUrl = buildShareUrl();
+    var message = SHARE_TEXT + "\n\n" + shareUrl;
+
+    if(platform === "instagram"){
+      withBusy(function(){
+        return getShareFile().then(function(file){
+          if(file && isMobileDevice() && canShareFiles(file)){
+            return navigator.share({ files:[file], title:"My Fantasy Cabinet", text: message })
+              .catch(function(){ downloadBlob(file); toast("Image saved. Open Instagram to post it."); });
+          }
           if(file) downloadBlob(file); else { try{ triggerDownload(els.canvas.toDataURL("image/png")); }catch(e){} }
-        }
-        if(open) window.open(open, "_blank", "noopener");
-        toast(note);
+          toast("Image saved. Open Instagram to post it.");
+        });
       });
-    });
+      return;
+    }
+
+    var open = null;
+    if(platform === "x"){
+      open = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(message);
+    } else if(platform === "bluesky"){
+      open = "https://bsky.app/intent/compose?text=" + encodeURIComponent(message);
+    } else if(platform === "facebook"){
+      open = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(shareUrl);
+    }
+    if(open) window.open(open, "_blank", "noopener");
+    var nice = platform.charAt(0).toUpperCase() + platform.slice(1);
+    toast("Opening " + nice + ". Your cabinet preview loads automatically.");
   }
 
   function fit(ctx, text, maxW){
