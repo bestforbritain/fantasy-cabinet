@@ -15,7 +15,7 @@ export default async function handler(req) {
   var origin = url.origin;
 
   var img = origin + '/api/og' + (c ? '?c=' + enc : '');
-  var builder = origin + '/' + (c ? '?c=' + enc : '');
+  var builder = origin + '/';
   var shareUrl = origin + '/share' + (c ? '?c=' + enc : '');
 
   var title = 'My Fantasy Cabinet | Best for Britain';
@@ -36,7 +36,7 @@ export default async function handler(req) {
     '<meta name="twitter:title" content="' + esc(title) + '">' +
     '<meta name="twitter:description" content="' + esc(desc) + '">' +
     '<meta name="twitter:image" content="' + esc(img) + '">' +
-    '<link rel="canonical" href="' + esc(builder) + '">' +
+    '<link rel="canonical" href="' + esc(shareUrl) + '">' +
     '<meta http-equiv="refresh" content="0; url=' + esc(builder) + '">' +
     '</head><body style="font-family:system-ui,sans-serif;padding:24px">' +
     '<p>Taking you to the Fantasy Cabinet Builder\u2026 <a href="' + esc(builder) + '">Continue</a>.</p>' +
@@ -46,7 +46,7 @@ export default async function handler(req) {
   return new Response(html, {
     headers: {
       'content-type': 'text/html; charset=utf-8',
-      'cache-control': 'public, max-age=300, s-maxage=86400'
+      'cache-control': 'public, max-age=0, s-maxage=60, stale-while-revalidate=300'
     }
   });
 }
