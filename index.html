@@ -197,6 +197,7 @@
   .mp-tick{display:none;flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--blue);color:var(--navy);place-items:center;font-size:13px;font-weight:800}
   .mp-badge{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--yellow);color:var(--navy);border-radius:5px;padding:2px 6px;flex:0 0 auto;margin-right:4px}
   .mp-special-header{grid-column:1/-1;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:4px 2px 8px;}
+  .mp-section-divider{grid-column:1/-1;height:1px;background:var(--line);margin:10px 0 8px;}
 
   .state{padding:26px 14px;text-align:center;color:var(--muted)}
   .state strong{color:var(--ink);font-family:var(--display)}
@@ -615,6 +616,9 @@
       hdr.textContent = "Special picks";
       frag.appendChild(hdr);
       specials.forEach(function(m){ frag.appendChild(makeMpButton(m, used)); });
+      var divider = document.createElement("div");
+      divider.className = "mp-section-divider";
+      frag.appendChild(divider);
     }
 
     // Regular MPs
