@@ -40,8 +40,14 @@ function truncate(name, max) {
   return s.length > max ? s.slice(0, max - 1) + '\u2026' : s;
 }
 
+var SPECIAL = {
+  '-1': { name: 'David Miliband', thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/dc/David_Miliband_2.jpg' }
+};
+
 async function fetchMP(id) {
+  if (SPECIAL[id]) return SPECIAL[id];
   var name = 'MP ' + id;
+  var thumbUrl = 'https://members-api.parliament.uk/api/Members/' + id + '/Thumbnail';
   try {
     var controller = new AbortController();
     var timer = setTimeout(function(){ controller.abort(); }, 1500);
@@ -52,7 +58,7 @@ async function fetchMP(id) {
       if (j && j.value) name = j.value.nameDisplayAs || j.value.nameFullTitle || name;
     }
   } catch (e) {}
-  return { name: name };
+  return { name: name, thumbUrl: thumbUrl };
 }
 
 export default async function handler(req) {
@@ -63,7 +69,7 @@ export default async function handler(req) {
     var picks = {};
     c.split(',').forEach(function (p) {
       var kv = p.split(':');
-      if (kv.length === 2 && /^[a-z]+$/.test(kv[0]) && /^[0-9]+$/.test(kv[1])) picks[kv[0]] = kv[1];
+      if (kv.length === 2 && /^[a-z]+$/.test(kv[0]) && /^-?[0-9]+$/.test(kv[1])) picks[kv[0]] = kv[1];
     });
 
     var uniqueIds = [];
@@ -82,7 +88,10 @@ export default async function handler(req) {
 
       var avatar;
       if (mp) {
-        avatar = h('div', { style: { width: '62px', height: '62px', borderRadius: '31px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: BRAND.lightgreen, color: BRAND.deep, fontSize: '23px', fontWeight: 700 } }, initialsOf(mp.name));
+        avatar = h('div', { style: { position: 'relative', width: '62px', height: '62px', borderRadius: '31px', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center', background: BRAND.lightgreen, color: BRAND.deep, fontSize: '23px', fontWeight: 700 } }, [
+          initialsOf(mp.name),
+          h('img', { src: mp.thumbUrl, width: 62, height: 62, style: { position: 'absolute', inset: '0', width: '62px', height: '62px', objectFit: 'cover' } })
+        ]);
       } else {
         avatar = h('div', { style: { width: '62px', height: '62px', borderRadius: '31px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.05)', border: '2px dashed rgba(255,255,255,0.22)', color: 'rgba(255,255,255,0.4)', fontSize: '26px' } }, '+');
       }
