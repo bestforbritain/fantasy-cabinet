@@ -10,7 +10,7 @@ export default async function handler(req) {
   var url = new URL(req.url);
   var raw = url.searchParams.get('c') || '';
   // keep only the safe characters our encoding uses
-  var c = raw.replace(/[^a-z0-9:,]/gi, '');
+  var c = raw.replace(/[^a-z0-9:,\-]/gi, '');
   var enc = encodeURIComponent(c);
   var origin = url.origin;
 
@@ -42,6 +42,9 @@ export default async function handler(req) {
     '<p>Taking you to the Fantasy Cabinet Builder\u2026 <a href="' + esc(builder) + '">Continue</a>.</p>' +
     '<script>location.replace(' + JSON.stringify(builder) + ');</script>' +
     '</body></html>';
+
+  // Pre-warm the OG image on the server so it's cached before Facebook/X scrape it
+  try { await fetch(img); } catch(e) {}
 
   return new Response(html, {
     headers: {
