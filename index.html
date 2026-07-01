@@ -445,7 +445,7 @@
   // ---------- data ----------
   function fetchPage(params, skip){
     var q = Object.keys(params).map(function(k){return k+"="+encodeURIComponent(params[k]);}).join("&");
-    var url = "https://members-api.parliament.uk/api/Members/Search?" + q + "&skip=" + skip + "&take=20";
+    var url = "/api/members?" + q + "&skip=" + skip + "&take=20";
     return fetch(url, {headers:{Accept:"application/json"}}).then(function(r){
       if(!r.ok) throw new Error("HTTP " + r.status);
       return r.json();
