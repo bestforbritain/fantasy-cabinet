@@ -42,15 +42,17 @@ function truncate(name, max) {
 
 async function fetchMP(id) {
   var name = 'MP ' + id;
-  var thumbUrl = 'https://members-api.parliament.uk/api/Members/' + id + '/Thumbnail';
   try {
-    var r = await fetch('https://members-api.parliament.uk/api/Members/' + id, { headers: { Accept: 'application/json' } });
+    var controller = new AbortController();
+    var timer = setTimeout(function(){ controller.abort(); }, 1500);
+    var r = await fetch('https://members-api.parliament.uk/api/Members/' + id, { headers: { Accept: 'application/json' }, signal: controller.signal });
+    clearTimeout(timer);
     if (r.ok) {
       var j = await r.json();
       if (j && j.value) name = j.value.nameDisplayAs || j.value.nameFullTitle || name;
     }
   } catch (e) {}
-  return { name: name, thumbUrl: thumbUrl };
+  return { name: name };
 }
 
 export default async function handler(req) {
@@ -80,7 +82,7 @@ export default async function handler(req) {
 
       var avatar;
       if (mp) {
-        avatar = h('img', { src: mp.thumbUrl, width: 62, height: 62, style: { width: '62px', height: '62px', borderRadius: '31px', objectFit: 'cover', border: '2px solid rgba(255,255,255,0.25)' } });
+        avatar = h('div', { style: { width: '62px', height: '62px', borderRadius: '31px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: BRAND.lightgreen, color: BRAND.deep, fontSize: '23px', fontWeight: 700 } }, initialsOf(mp.name));
       } else {
         avatar = h('div', { style: { width: '62px', height: '62px', borderRadius: '31px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.05)', border: '2px dashed rgba(255,255,255,0.22)', color: 'rgba(255,255,255,0.4)', fontSize: '26px' } }, '+');
       }
