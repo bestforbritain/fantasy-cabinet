@@ -40,21 +40,9 @@ function truncate(name, max) {
   return s.length > max ? s.slice(0, max - 1) + '\u2026' : s;
 }
 
-async function toDataUrl(url) {
-  var r = await fetch(url);
-  if (!r.ok) throw new Error('img ' + r.status);
-  var bytes = new Uint8Array(await r.arrayBuffer());
-  var bin = '';
-  for (var i = 0; i < bytes.length; i += 8192) {
-    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 8192));
-  }
-  var ct = r.headers.get('content-type') || 'image/jpeg';
-  return 'data:' + ct + ';base64,' + btoa(bin);
-}
-
 async function fetchMP(id) {
   var name = 'MP ' + id;
-  var photo = null;
+  var thumbUrl = 'https://members-api.parliament.uk/api/Members/' + id + '/Thumbnail';
   try {
     var r = await fetch('https://members-api.parliament.uk/api/Members/' + id, { headers: { Accept: 'application/json' } });
     if (r.ok) {
@@ -62,10 +50,7 @@ async function fetchMP(id) {
       if (j && j.value) name = j.value.nameDisplayAs || j.value.nameFullTitle || name;
     }
   } catch (e) {}
-  try {
-    photo = await toDataUrl('https://members-api.parliament.uk/api/Members/' + id + '/Thumbnail');
-  } catch (e) { photo = null; }
-  return { name: name, photo: photo };
+  return { name: name, thumbUrl: thumbUrl };
 }
 
 export default async function handler(req) {
@@ -94,10 +79,8 @@ export default async function handler(req) {
       var mp = id ? dataById[id] : null;
 
       var avatar;
-      if (mp && mp.photo) {
-        avatar = h('img', { src: mp.photo, width: 62, height: 62, style: { width: '62px', height: '62px', borderRadius: '31px', objectFit: 'cover', border: '2px solid rgba(255,255,255,0.25)' } });
-      } else if (mp) {
-        avatar = h('div', { style: { width: '62px', height: '62px', borderRadius: '31px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: BRAND.lightgreen, color: BRAND.deep, fontSize: '23px', fontWeight: 700 } }, initialsOf(mp.name));
+      if (mp) {
+        avatar = h('img', { src: mp.thumbUrl, width: 62, height: 62, style: { width: '62px', height: '62px', borderRadius: '31px', objectFit: 'cover', border: '2px solid rgba(255,255,255,0.25)' } });
       } else {
         avatar = h('div', { style: { width: '62px', height: '62px', borderRadius: '31px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255,255,255,0.05)', border: '2px dashed rgba(255,255,255,0.22)', color: 'rgba(255,255,255,0.4)', fontSize: '26px' } }, '+');
       }
