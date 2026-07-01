@@ -195,6 +195,8 @@
   .mp-name{display:block;font-weight:700;font-size:14px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .mp-con{display:block;margin-top:2px;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .mp-tick{display:none;flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--blue);color:var(--navy);place-items:center;font-size:13px;font-weight:800}
+  .mp-badge{font-size:10px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:var(--yellow);color:var(--navy);border-radius:5px;padding:2px 6px;flex:0 0 auto;margin-right:4px}
+  .mp-special-header{grid-column:1/-1;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:4px 2px 8px;}
 
   .state{padding:26px 14px;text-align:center;color:var(--muted)}
   .state strong{color:var(--ink);font-family:var(--display)}
@@ -383,6 +385,10 @@
   ];
   var TOTAL = ROLES.length;
   var THUMB = function(id){ return "https://members-api.parliament.uk/api/Members/" + id + "/Thumbnail"; };
+  var SPECIAL_PICKS = [
+    {id:-1, name:"David Miliband", con:"Former MP for South Shields", surname:"miliband", initials:"DM",
+     photo:"https://upload.wikimedia.org/wikipedia/commons/d/dc/David_Miliband_2.jpg", party:"Labour"}
+  ];
 
   var mps = [];            // {id,name,con,surname,initials}
   var byId = {};
@@ -553,6 +559,7 @@
       mps = list;
       byId = {};
       mps.forEach(function(m){ byId[m.id] = m; });
+      SPECIAL_PICKS.forEach(function(m){ byId[m.id] = m; });
       applyPending();
       renderCabinet();
       updateStatus();
@@ -578,26 +585,48 @@
     return u;
   }
 
+  function makeMpButton(m, used){
+    var b = document.createElement("button");
+    b.className = "mp" + (used[m.id] ? " used" : "");
+    b.type = "button";
+    b.setAttribute("data-mp", m.id);
+    var photoSrc = m.photo || THUMB(m.id);
+    var badge = m.photo ? '<span class="mp-badge">Special pick</span>' : '';
+    b.innerHTML =
+      '<span class="mp-photo"><img loading="lazy" alt="" src="'+escapeHtml(photoSrc)+'" onerror="this.style.display=\'none\';this.parentNode.textContent=\''+m.initials+'\'"></span>'+
+      '<span class="mp-body"><span class="mp-name">'+escapeHtml(m.name)+'</span><span class="mp-con">'+escapeHtml(m.con||"")+'</span></span>'+
+      badge+
+      '<span class="mp-tick">\u2713</span>';
+    return b;
+  }
+
   function renderMPs(query){
     var q = (query||"").trim().toLowerCase();
     var used = usedMpIds();
     var frag = document.createDocumentFragment();
+
+    // Special picks pinned at top
+    var specials = SPECIAL_PICKS.filter(function(m){
+      return !q || m.name.toLowerCase().indexOf(q) !== -1 || m.con.toLowerCase().indexOf(q) !== -1;
+    });
+    if(specials.length){
+      var hdr = document.createElement("div");
+      hdr.className = "mp-special-header";
+      hdr.textContent = "Special picks";
+      frag.appendChild(hdr);
+      specials.forEach(function(m){ frag.appendChild(makeMpButton(m, used)); });
+    }
+
+    // Regular MPs
     var shown = 0;
     mps.forEach(function(m){
       if(q && m.name.toLowerCase().indexOf(q) === -1 && m.con.toLowerCase().indexOf(q) === -1) return;
       shown++;
-      var b = document.createElement("button");
-      b.className = "mp" + (used[m.id] ? " used" : "");
-      b.type = "button";
-      b.setAttribute("data-mp", m.id);
-      b.innerHTML =
-        '<span class="mp-photo"><img loading="lazy" alt="" src="'+THUMB(m.id)+'" onerror="this.style.display=\'none\';this.parentNode.textContent=\''+m.initials+'\'"></span>'+
-        '<span class="mp-body"><span class="mp-name">'+escapeHtml(m.name)+'</span><span class="mp-con">'+escapeHtml(m.con||"")+'</span></span>'+
-        '<span class="mp-tick">\u2713</span>';
-      frag.appendChild(b);
+      frag.appendChild(makeMpButton(m, used));
     });
+
     els.mpList.innerHTML = "";
-    if(shown === 0){
+    if(shown === 0 && specials.length === 0){
       els.mpList.innerHTML = '<div class="state">No MPs match \u201c'+escapeHtml(query)+'\u201d.</div>';
     } else {
       els.mpList.appendChild(frag);
@@ -634,7 +663,8 @@
       card.title = role.t;
       var avatar, name;
       if(mp){
-        avatar = '<span class="role-avatar"><img alt="" src="'+THUMB(mp.id)+'" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<span class=&quot;initials&quot;>'+mp.initials+'</span>\'"></span>';
+        var mpThumb = mp.photo || THUMB(mp.id);
+        avatar = '<span class="role-avatar"><img alt="" src="'+mpThumb+'" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<span class=&quot;initials&quot;>'+mp.initials+'</span>\'"></span>';
         name = '<span class="role-name">'+escapeHtml(mp.name)+'</span>';
       } else {
         avatar = '<span class="role-avatar empty">+</span>';
@@ -863,7 +893,8 @@
       var mpId = assignments[role.id];
       if(!mpId) return Promise.resolve({role:role, mp:null, img:null});
       var mp = byId[mpId];
-      return loadSafeImage(THUMB(mpId)).then(function(img){ return {role:role, mp:mp, img:img}; });
+      var photoUrl = (mp && mp.photo) || THUMB(mpId);
+      return loadSafeImage(photoUrl).then(function(img){ return {role:role, mp:mp, img:img}; });
     });
     return Promise.all(jobs).then(function(rows){ drawCabinet(rows); return els.canvas; });
   }
