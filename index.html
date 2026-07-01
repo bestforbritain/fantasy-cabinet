@@ -381,8 +381,64 @@
   var TOTAL = ROLES.length;
   var THUMB = function(id){ return "https://members-api.parliament.uk/api/Members/" + id + "/Thumbnail"; };
   var SPECIAL_PICKS = [
-    {id:-1, name:"David Miliband", con:"Former MP for South Shields", surname:"miliband", initials:"DM",
-     photo:"https://upload.wikimedia.org/wikipedia/commons/d/dc/David_Miliband_2.jpg", party:"Labour"}
+    {id:-1,  name:"David Miliband",       con:"Former MP for South Shields",    initials:"DM", photo:"https://upload.wikimedia.org/wikipedia/commons/d/dc/David_Miliband_2.jpg"},
+    {id:-2,  name:"David Attenborough",   con:"Naturalist & Broadcaster",        initials:"DA", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/David_Attenborough_in_2025.jpg/330px-David_Attenborough_in_2025.jpg"},
+    {id:-3,  name:"Stacey Dooley",        con:"Journalist & Documentary Maker",  initials:"SD", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Stacey_Dooley_at_War_on_Want_event_%28cropped_2%29.jpg/330px-Stacey_Dooley_at_War_on_Want_event_%28cropped_2%29.jpg"},
+    {id:-4,  name:"Gemma Collins",        con:"Reality TV Star",                 initials:"GC", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Gemma_Collins_by_Gemma_Collagen.jpg/330px-Gemma_Collins_by_Gemma_Collagen.jpg"},
+    {id:-5,  name:"Wayne Rooney",         con:"Footballer & Manager",            initials:"WR", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg/330px-Wayne_Rooney_%2850121495731%29_%28cropped%29.jpg"},
+    {id:-6,  name:"Ant & Dec",            con:"TV Presenters",                   initials:"AD", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Ant_and_Dec_in_Cardiff_Bay.jpg/330px-Ant_and_Dec_in_Cardiff_Bay.jpg"},
+    {id:-7,  name:"Joanna Lumley",        con:"Actress",                         initials:"JL", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Land_Rover_%E2%80%98Defender_2%2C000%2C000%E2%80%99_Sells_for_Record_%C2%A3400%2C000_at_Bonhams_Charity_Auction_%2823776501966%29_%28cropped%29.jpg/330px-Land_Rover_%E2%80%98Defender_2%2C000%2C000%E2%80%99_Sells_for_Record_%C2%A3400%2C000_at_Bonhams_Charity_Auction_%2823776501966%29_%28cropped%29.jpg"},
+    {id:-8,  name:"Imelda Staunton",      con:"Actress",                         initials:"IS", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Imelda_Staunton%2C_October_2019.jpg/330px-Imelda_Staunton%2C_October_2019.jpg"},
+    {id:-9,  name:"Miriam Margolyes",     con:"Actress",                         initials:"MM", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Miriam_Margolyes_2008.jpg/330px-Miriam_Margolyes_2008.jpg"},
+    {id:-10, name:"Jamie Oliver",         con:"Celebrity Chef",                  initials:"JO", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jamie_Oliver_%28cropped%29.jpg/330px-Jamie_Oliver_%28cropped%29.jpg"},
+    {id:-11, name:"Katie Price",          con:"Model & TV Personality",          initials:"KP", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Katie_Price_on_tour_September_2025.jpg/330px-Katie_Price_on_tour_September_2025.jpg"},
+    {id:-12, name:"Kim Woodburn",         con:"TV Personality",                  initials:"KW", photo:"https://upload.wikimedia.org/wikipedia/en/a/ac/Kim_Woodburn.jpg"},
+    {id:-13, name:"Rowan Atkinson",       con:"Comedian & Actor",                initials:"RA", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Rowan_Atkinson%2C_2011.jpg/330px-Rowan_Atkinson%2C_2011.jpg"},
+    {id:-14, name:"Gordon Ramsay",        con:"Celebrity Chef",                  initials:"GR", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Gordon_Ramsay_%28cropped%29.jpg/330px-Gordon_Ramsay_%28cropped%29.jpg"},
+    {id:-15, name:"Miranda Hart",         con:"Comedian & Actress",              initials:"MH", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Miranda_Hart_in_2011.jpg/330px-Miranda_Hart_in_2011.jpg"},
+    {id:-16, name:"Gareth Southgate",     con:"Football Manager",                initials:"GS", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Southgate_2023.jpg/330px-Southgate_2023.jpg"},
+    {id:-17, name:"Martin Lewis",         con:"Financial Journalist",            initials:"ML", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Martin_Lewis_at_BAFTA_2026_02.jpg/330px-Martin_Lewis_at_BAFTA_2026_02.jpg"},
+    {id:-18, name:"Alan Carr",            con:"Comedian & TV Presenter",         initials:"AC", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Alan_Carr_at_BAFTA_2026_%28cropped%29.jpg/330px-Alan_Carr_at_BAFTA_2026_%28cropped%29.jpg"},
+    {id:-19, name:"Graham Norton",        con:"TV Presenter",                    initials:"GN", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/GrahamNorton-byPhilipRomano.jpg/330px-GrahamNorton-byPhilipRomano.jpg"},
+    {id:-20, name:"Harry Styles",         con:"Singer",                          initials:"HS", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/HarryStylesWembley170623_%2865_of_93%29_%2852982678051%29_%28cropped_2%29.jpg/330px-HarryStylesWembley170623_%2865_of_93%29_%2852982678051%29_%28cropped_2%29.jpg"},
+    {id:-21, name:"Noel Edmonds",         con:"TV Presenter",                    initials:"NE", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Noel_Edmonds_2020.png/330px-Noel_Edmonds_2020.png"},
+    {id:-22, name:"Louis Theroux",        con:"Documentary Maker",               initials:"LT", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Louis_Theroux_crop.jpg/330px-Louis_Theroux_crop.jpg"},
+    {id:-23, name:"Olivia Rodrigo",       con:"Singer-Songwriter",               initials:"OR", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Glasto2025-546_%28cropped%29_%282%29.jpg/330px-Glasto2025-546_%28cropped%29_%282%29.jpg"},
+    {id:-24, name:"Charli XCX",           con:"Singer",                          initials:"CX", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Charli_xcx_at_Berlinale_2026-1.jpg/330px-Charli_xcx_at_Berlinale_2026-1.jpg"},
+    {id:-25, name:"Dua Lipa",             con:"Singer",                          initials:"DL", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Dua_Lipa-69798_%28cropped%29.jpg/330px-Dua_Lipa-69798_%28cropped%29.jpg"},
+    {id:-26, name:"Madonna",              con:"Singer",                          initials:"MA", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/MadonnaO2171023_%2897_of_133%29_%2853269593787%29_%28cropped%29.jpg/330px-MadonnaO2171023_%2897_of_133%29_%2853269593787%29_%28cropped%29.jpg"},
+    {id:-27, name:"Millie Bobby Brown",   con:"Actress",                         initials:"MB", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Millie_Bobby_Brown_-_MBB_-_4_-_SFM5_-_July_10%2C_2022_at_Stranger_Fan_Meet_5_Convention_%28cropped%29.jpg/330px-Millie_Bobby_Brown_-_MBB_-_4_-_SFM5_-_July_10%2C_2022_at_Stranger_Fan_Meet_5_Convention_%28cropped%29.jpg"},
+    {id:-28, name:"Tracey Emin",          con:"Artist",                          initials:"TE", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Tracey_Emin_1-cropped.jpg/330px-Tracey_Emin_1-cropped.jpg"},
+    {id:-29, name:"Emma Watson",          con:"Actress & Activist",              initials:"EW", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Emma_Watson_2013.jpg/330px-Emma_Watson_2013.jpg"},
+    {id:-30, name:"Elton John",           con:"Singer",                          initials:"EJ", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/EltonDocBFILFF101024_%284_of_17%29_%28cropped%29.jpg/330px-EltonDocBFILFF101024_%284_of_17%29_%28cropped%29.jpg"},
+    {id:-31, name:"Jude Bellingham",      con:"Footballer",                      initials:"JB", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Jude_Bellingham_England_v_Ghana_23_June_2026-061.jpg/330px-Jude_Bellingham_England_v_Ghana_23_June_2026-061.jpg"},
+    {id:-32, name:"Amal Clooney",         con:"Human Rights Lawyer",             initials:"AC", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Amal_Clooney_2022_%28cropped%29.jpg/330px-Amal_Clooney_2022_%28cropped%29.jpg"},
+    {id:-33, name:"Stephen Fry",          con:"Actor & Writer",                  initials:"SF", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Stephen_Fry_at_Berlinale_2024_Ausschnitt.jpg/330px-Stephen_Fry_at_Berlinale_2024_Ausschnitt.jpg"},
+    {id:-34, name:"Greg Davies",          con:"Comedian & Actor",                initials:"GD", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/GregDavies-byPhilipRomano.jpg/330px-GregDavies-byPhilipRomano.jpg"},
+    {id:-35, name:"Romesh Ranganathan",   con:"Comedian",                        initials:"RR", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/RomeshRanganathan-byPhilipRomano.jpg/330px-RomeshRanganathan-byPhilipRomano.jpg"},
+    {id:-36, name:"Claudia Winkleman",    con:"TV Presenter",                    initials:"CW", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Claudia_Winkleman_at_BAFTA_2026_01.jpg/330px-Claudia_Winkleman_at_BAFTA_2026_01.jpg"},
+    {id:-37, name:"Ian McKellen",         con:"Actor",                           initials:"IM", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/SDCC13_-_Ian_McKellen.jpg/330px-SDCC13_-_Ian_McKellen.jpg"},
+    {id:-38, name:"Celine Dion",          con:"Singer",                          initials:"CD", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/C%C3%A9line_Dion_2012.jpg/330px-C%C3%A9line_Dion_2012.jpg"},
+    {id:-39, name:"Richard Osman",        con:"TV Presenter & Author",           initials:"RO", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Richard_Osman_2022.png/330px-Richard_Osman_2022.png"},
+    {id:-40, name:"Clare Balding",        con:"Sports Presenter",                initials:"CB", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Award_of_clare_balding_%28cropped%29.jpg/330px-Award_of_clare_balding_%28cropped%29.jpg"},
+    {id:-41, name:"Hannah Fry",           con:"Mathematician & Presenter",       initials:"HF", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Hannah_Fry_at_the_Data_of_Tomorrow_Conference_2017_%2836638999274%29_%28cropped_3%29.jpg/330px-Hannah_Fry_at_the_Data_of_Tomorrow_Conference_2017_%2836638999274%29_%28cropped_3%29.jpg"},
+    {id:-42, name:"Alison Hammond",       con:"TV Presenter",                    initials:"AH", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Alison_Hammond_on_ITV%27s_%27This_Morning%27_in_2023.jpg/330px-Alison_Hammond_on_ITV%27s_%27This_Morning%27_in_2023.jpg"},
+    {id:-43, name:"Victoria Beckham",     con:"Fashion Designer",                initials:"VB", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/VictoriaBeckham2018-2-Crop.jpg/330px-VictoriaBeckham2018-2-Crop.jpg"},
+    {id:-44, name:"Tyson Fury",           con:"Boxer",                           initials:"TF", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Tyson_Fury_at_Place_Bell%2C_Laval_Quebec%2C_Canada_-_Dec_16_2017_%28cropped%29.jpg/330px-Tyson_Fury_at_Place_Bell%2C_Laval_Quebec%2C_Canada_-_Dec_16_2017_%28cropped%29.jpg"},
+    {id:-45, name:"Mollie-Mae Hague",     con:"Influencer & Businesswoman",      initials:"MH", photo:"https://upload.wikimedia.org/wikipedia/commons/c/cd/Molly_Mae_Hague_at_the_National_Television_Awards_%28cropped%29.jpg"},
+    {id:-46, name:"Carol Vorderman",      con:"TV Presenter",                    initials:"CV", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Carol_Vorderman_%28cropped%29.png/330px-Carol_Vorderman_%28cropped%29.png"},
+    {id:-47, name:"Gordon Brown",         con:"Former Prime Minister",           initials:"GB", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Gordon_Brown_%282008%29.jpg/330px-Gordon_Brown_%282008%29.jpg"},
+    {id:-48, name:"Tony Blair",           con:"Former Prime Minister",           initials:"TB", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Tony_Blair_%282010%29_%283x4_cropped%29.jpg/330px-Tony_Blair_%282010%29_%283x4_cropped%29.jpg"},
+    {id:-49, name:"John Major",           con:"Former Prime Minister",           initials:"JM", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/John_Major_1993_%283%29.jpg/330px-John_Major_1993_%283%29.jpg"},
+    {id:-50, name:"Jamie Laing",          con:"TV Personality",                  initials:"JL", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Jaime_Laing_at_SXSW_London_2025.jpg/330px-Jaime_Laing_at_SXSW_London_2025.jpg"},
+    {id:-51, name:"Judge Rinder",         con:"TV Barrister",                    initials:"JR", photo:"https://upload.wikimedia.org/wikipedia/en/6/66/Judge_rinder.jpg"},
+    {id:-52, name:"Danny Dyer",           con:"Actor",                           initials:"DD", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Danny_Dyer_at_BAFTAs_2026_02.jpg/330px-Danny_Dyer_at_BAFTAs_2026_02.jpg"},
+    {id:-53, name:"Brooklyn Beckham",     con:"Photographer & Chef",             initials:"BB", photo:null},
+    {id:-54, name:"Princess Diana",       con:"Princess of Wales",               initials:"PD", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg/330px-Diana%2C_Princess_of_Wales_1997_%282%29.jpg"},
+    {id:-55, name:"George Orwell",        con:"Author",                          initials:"GO", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/330px-George_Orwell_press_photo.jpg"},
+    {id:-56, name:"Sir Isaac Newton",     con:"Scientist",                       initials:"IN", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg/330px-Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg"},
+    {id:-57, name:"Jedward",              con:"Pop Duo",                         initials:"JE", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Jedward-original.jpg/330px-Jedward-original.jpg"},
+    {id:-58, name:"Liam & Noel Gallagher",con:"Oasis",                          initials:"LG", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/OasisCardiff040725-88_-_54640244776_%28landscape_crop%29_%28cropped%29.jpg/330px-OasisCardiff040725-88_-_54640244776_%28landscape_crop%29_%28cropped%29.jpg"}
   ];
 
   var mps = [];            // {id,name,con,surname,initials}
@@ -585,10 +641,13 @@
     b.className = "mp" + (used[m.id] ? " used" : "");
     b.type = "button";
     b.setAttribute("data-mp", m.id);
-    var photoSrc = m.photo || THUMB(m.id);
-    var badge = m.photo ? '<span class="mp-badge">Special pick</span>' : '';
+    var photoSrc = m.photo || (m.id > 0 ? THUMB(m.id) : '');
+    var badge = (m.id < 0) ? '<span class="mp-badge">Special pick</span>' : '';
+    var photoHtml = photoSrc
+      ? '<img loading="lazy" alt="" src="'+escapeHtml(photoSrc)+'" onerror="this.style.display=\'none\';this.parentNode.textContent=\''+m.initials+'\'">'
+      : m.initials;
     b.innerHTML =
-      '<span class="mp-photo"><img loading="lazy" alt="" src="'+escapeHtml(photoSrc)+'" onerror="this.style.display=\'none\';this.parentNode.textContent=\''+m.initials+'\'"></span>'+
+      '<span class="mp-photo">'+photoHtml+'</span>'+
       '<span class="mp-body"><span class="mp-name">'+escapeHtml(m.name)+'</span><span class="mp-con">'+escapeHtml(m.con||"")+'</span></span>'+
       badge+
       '<span class="mp-tick">\u2713</span>';
