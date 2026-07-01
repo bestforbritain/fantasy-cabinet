@@ -17,7 +17,8 @@ var ROLES = [
   ['pm', 'PM'], ['dpm', 'Dep. PM'], ['chx', 'Chancellor'], ['fco', 'Foreign'], ['home', 'Home'],
   ['jus', 'Justice'], ['def', 'Defence'], ['hsc', 'Health'], ['edu', 'Education'], ['dwp', 'Work & Pensions'],
   ['dbt', 'Business & Trade'], ['net', 'Energy'], ['sci', 'Science & Tech'], ['hou', 'Housing'], ['tra', 'Transport'],
-  ['env', 'Environment'], ['cms', 'Culture'], ['ni', 'N. Ireland'], ['sco', 'Scotland'], ['wal', 'Wales']
+  ['env', 'Environment'], ['cms', 'Culture'], ['ni', 'N. Ireland'], ['sco', 'Scotland'], ['wal', 'Wales'],
+  ['whip', 'Chief Whip']
 ];
 
 // Minimal element helper so we can avoid JSX (keeps this a plain .js file)
