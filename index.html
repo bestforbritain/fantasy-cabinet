@@ -939,7 +939,13 @@
     return /Mobi|Android|iPhone|iPod|iPad/i.test(navigator.userAgent);
   }
 
+  function warmOgCache(){
+    var enc = encodeState();
+    if(enc) fetch('/api/og?c=' + encodeURIComponent(enc)).catch(function(){});
+  }
+
   function shareTo(platform){
+    warmOgCache();
     var shareUrl = buildShareUrl();
     var message = SHARE_TEXT + "\n\n" + shareUrl;
 
