@@ -174,7 +174,23 @@ var SPECIAL = {
   '-131': { name: 'Dina Asher-Smith',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Dina_Asher-Smith_2_Oregon_2022_%28cropped%29.jpg/330px-Dina_Asher-Smith_2_Oregon_2022_%28cropped%29.jpg' },
   '-132': { name: 'Mary Earps',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mary_Earps_Man_Utd.jpg/330px-Mary_Earps_Man_Utd.jpg' },
   '-133': { name: 'Dawn French',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Dawn_French_1.jpg/330px-Dawn_French_1.jpg' },
-  '-134': { name: 'Dame Mary Berry',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Mary_Berry_at_Chelsea_Flower_Show_-_2017_-_%2834039048853%29_%28cropped%29.jpg/330px-Mary_Berry_at_Chelsea_Flower_Show_-_2017_-_%2834039048853%29_%28cropped%29.jpg' }
+  '-134': { name: 'Dame Mary Berry',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Mary_Berry_at_Chelsea_Flower_Show_-_2017_-_%2834039048853%29_%28cropped%29.jpg/330px-Mary_Berry_at_Chelsea_Flower_Show_-_2017_-_%2834039048853%29_%28cropped%29.jpg' },
+  '-135': { name: 'King Charles I',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/King_Charles_I_after_original_by_van_Dyck.jpg/330px-King_Charles_I_after_original_by_van_Dyck.jpg' },
+  '-136': { name: 'William Pitt the Younger', thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/OlderPittThe_Younger.jpg/330px-OlderPittThe_Younger.jpg' },
+  '-137': { name: 'Bob Mortimer',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bob_Mortimer_in_2017.jpg/330px-Bob_Mortimer_in_2017.jpg' },
+  '-138': { name: 'Johnny Vegas',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Johnny_Vegas_2021.png/330px-Johnny_Vegas_2021.png' },
+  '-139': { name: 'Rylan',                  thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Rylan_Clark_2024_%28cropped%29.jpg/330px-Rylan_Clark_2024_%28cropped%29.jpg' },
+  '-140': { name: 'Bez',                    thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bez-2007.jpg/330px-Bez-2007.jpg' },
+  '-141': { name: 'Timmy Mallett',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Timmymallettcropped.jpg/330px-Timmymallettcropped.jpg' },
+  '-142': { name: 'Su Pollard',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Supollard1.jpg' },
+  '-143': { name: 'Keith Lemon',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Keith_Lemon_%288464862242%29_%28cropped%29.jpg/330px-Keith_Lemon_%288464862242%29_%28cropped%29.jpg' },
+  '-144': { name: 'Jenny Eclair',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Jennyeclair.jpg/330px-Jennyeclair.jpg' },
+  '-145': { name: 'Iain Stirling',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Ian_Stirling_at_BAFTA_2026_01.jpg/330px-Ian_Stirling_at_BAFTA_2026_01.jpg' },
+  '-146': { name: 'Ainsley Harriott',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Ainsley_Harriott.jpg/330px-Ainsley_Harriott.jpg' },
+  '-147': { name: 'Tim Key',                thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/2025_01_25_Sundance_Film_Festival-41_Full_%28cropped%29.jpg/330px-2025_01_25_Sundance_Film_Festival-41_Full_%28cropped%29.jpg' },
+  '-148': { name: 'Judi Love',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Judi_Love_at_BAFTAs_2026_02.jpg/330px-Judi_Love_at_BAFTAs_2026_02.jpg' },
+  '-149': { name: 'Alan Partridge',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Alan_Partridge_booksigning_%28cropped%29.png' },
+  '-150': { name: 'David Brent',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/David_Brent_111.jpg/330px-David_Brent_111.jpg' }
 };
 
 async function fetchMP(id) {
