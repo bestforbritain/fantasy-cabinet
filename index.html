@@ -245,8 +245,15 @@
   @media(max-width:620px){
     .picker-modal{align-items:flex-end;padding:0;}
     .picker-sheet{border-radius:20px 20px 0 0;max-width:100%;max-height:92vh;}
-    .picker-split{flex-direction:column;}
-    .picker-specials-col{width:auto;flex:0 0 auto;max-height:36vh;border-right:none;border-bottom:1px solid var(--line);}
+    /* keep the 50/50 side-by-side layout, just tighten the cards */
+    .picker-col-header{padding:9px 10px}
+    .picker-body{padding:10px 10px 0}
+    .picker-list-wrap{padding:0 10px 12px}
+    .mp{padding:6px 7px;gap:8px}
+    .mp-photo{width:34px;height:34px;flex:0 0 34px}
+    .mp-name{font-size:12.5px}
+    .mp-con{font-size:11px}
+    .mp-badge{display:none}
   }
   .btn{
     appearance:none;font:inherit;font-family:var(--display);font-weight:800;cursor:pointer;
