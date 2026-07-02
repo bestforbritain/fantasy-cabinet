@@ -1200,7 +1200,13 @@
       ctx.fillStyle = "#13503c"; ctx.fill();
       if(row.img){
         ctx.clip();
-        ctx.drawImage(row.img, cx-avatarR, cy-avatarR, avatarR*2, avatarR*2);
+        // centre-crop the source to a square so the image fills the circle without stretching
+        var iw = row.img.naturalWidth || row.img.width;
+        var ih = row.img.naturalHeight || row.img.height;
+        var side = Math.min(iw, ih);
+        var sx = (iw - side) / 2;
+        var sy = (ih - side) / 2;
+        ctx.drawImage(row.img, sx, sy, side, side, cx-avatarR, cy-avatarR, avatarR*2, avatarR*2);
       } else if(row.mp){
         ctx.clip();
         ctx.fillStyle = "#5fb887"; ctx.fillRect(cx-avatarR, cy-avatarR, avatarR*2, avatarR*2);
