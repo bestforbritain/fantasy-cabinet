@@ -86,7 +86,7 @@ var SPECIAL = {
   '-42': { name: 'Alison Hammond',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Alison_Hammond_on_ITV%27s_%27This_Morning%27_in_2023.jpg/330px-Alison_Hammond_on_ITV%27s_%27This_Morning%27_in_2023.jpg' },
   '-43': { name: 'Victoria Beckham',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/VictoriaBeckham2018-2-Crop.jpg/330px-VictoriaBeckham2018-2-Crop.jpg' },
   '-44': { name: 'Tyson Fury',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Tyson_Fury_at_Place_Bell%2C_Laval_Quebec%2C_Canada_-_Dec_16_2017_%28cropped%29.jpg/330px-Tyson_Fury_at_Place_Bell%2C_Laval_Quebec%2C_Canada_-_Dec_16_2017_%28cropped%29.jpg' },
-  '-45': { name: 'Mollie-Mae Hague',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Molly_Mae_Hague_at_the_National_Television_Awards_%28cropped%29.jpg' },
+  '-45': { name: 'Molly-Mae Hague',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Molly_Mae_Hague_at_the_National_Television_Awards_%28cropped%29.jpg' },
   '-46': { name: 'Carol Vorderman',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Carol_Vorderman_%28cropped%29.png/330px-Carol_Vorderman_%28cropped%29.png' },
   '-47': { name: 'Gordon Brown',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Gordon_Brown_%282008%29.jpg/330px-Gordon_Brown_%282008%29.jpg' },
   '-48': { name: 'Tony Blair',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Tony_Blair_%282010%29_%283x4_cropped%29.jpg/330px-Tony_Blair_%282010%29_%283x4_cropped%29.jpg' },
@@ -202,7 +202,9 @@ var SPECIAL = {
   '-164': { name: 'Tim Peake',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Timothy_Peake%2C_official_portrait.jpg/330px-Timothy_Peake%2C_official_portrait.jpg' },
   '-165': { name: 'Thomas Tuchel',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg/330px-Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg' },
   '-166': { name: 'Jeremy Clarkson',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Jeremy_Clarkson%2C_Top_Gear_Live_2012_%284x5_cropped%29.jpg/330px-Jeremy_Clarkson%2C_Top_Gear_Live_2012_%284x5_cropped%29.jpg' },
-  '-167': { name: 'Kaleb Cooper',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rishi_Sunak_speaks_with_Kaleb_Cooper_%28cropped%29.jpg/330px-Rishi_Sunak_speaks_with_Kaleb_Cooper_%28cropped%29.jpg' }
+  '-167': { name: 'Kaleb Cooper',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rishi_Sunak_speaks_with_Kaleb_Cooper_%28cropped%29.jpg/330px-Rishi_Sunak_speaks_with_Kaleb_Cooper_%28cropped%29.jpg' },
+  '-168': { name: 'Eddie Izzard',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Eddie_Izzard_comes_to_Crouch_End.jpg/330px-Eddie_Izzard_comes_to_Crouch_End.jpg' },
+  '-169': { name: 'Abigail Thorn',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Portrait_of_Abigail_Thorn.jpg/330px-Portrait_of_Abigail_Thorn.jpg' }
 };
 
 async function fetchMP(id) {
