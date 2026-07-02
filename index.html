@@ -739,6 +739,11 @@
       var sfrag = document.createDocumentFragment();
       var specials = SPECIAL_PICKS.filter(function(m){
         return !q || m.name.toLowerCase().indexOf(q) !== -1 || (m.con||"").toLowerCase().indexOf(q) !== -1;
+      }).sort(function(a,b){
+        var sa = surnameOf(a.name), sb = surnameOf(b.name);
+        if(sa < sb) return -1;
+        if(sa > sb) return 1;
+        return a.name < b.name ? -1 : 1;
       });
       if(specials.length === 0){
         var noSpec = document.createElement("div");
