@@ -153,8 +153,8 @@
   .role-body{min-width:0;flex:1}
   .role-name{
     display:block;
-    font-family:var(--display);font-weight:800;font-size:15px;line-height:1.15;
-    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    font-family:var(--display);font-weight:800;font-size:13px;line-height:1.2;
+    word-break:break-word;
   }
   .role-name.placeholder{color:var(--muted);font-weight:600}
   .role-title{display:block;font-size:11.5px;color:var(--muted);font-weight:600;margin-top:3px;line-height:1.2}
@@ -207,8 +207,8 @@
   .picker-modal[hidden]{display:none}
   .picker-backdrop{position:absolute;inset:0;background:rgba(4,26,19,.55);backdrop-filter:blur(3px);}
   .picker-sheet{
-    position:relative;background:var(--card);border-radius:18px;width:100%;max-width:640px;
-    height:82vh;display:flex;flex-direction:column;box-shadow:0 8px 48px rgba(4,26,19,.28);
+    position:relative;background:var(--card);border-radius:18px;width:100%;max-width:920px;
+    height:85vh;display:flex;flex-direction:column;box-shadow:0 8px 48px rgba(4,26,19,.28);
   }
   .picker-header{
     display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
@@ -223,11 +223,31 @@
   }
   .picker-close:hover{background:var(--line);color:var(--ink)}
   .picker-close:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
-  .picker-body{padding:14px 16px 0;flex:0 0 auto;}
+  /* Split panel layout */
+  .picker-split{display:flex;flex:1 1 0;min-height:0;overflow:hidden;}
+  .picker-specials-col{
+    width:270px;flex:0 0 270px;border-right:1px solid var(--line);
+    display:flex;flex-direction:column;min-height:0;
+  }
+  .picker-mps-col{flex:1 1 0;min-width:0;display:flex;flex-direction:column;min-height:0;}
+  .picker-col-header{
+    padding:10px 16px 9px;font-size:11px;font-weight:800;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--muted);flex:0 0 auto;border-bottom:1px solid var(--line);
+  }
+  .picker-body{padding:12px 16px 0;flex:0 0 auto;}
   .picker-list-wrap{overflow-y:auto;padding:0 16px 16px;flex:1 1 0;min-height:0;}
-  @media(max-width:540px){
+  .party-filter{
+    width:100%;border:1px solid var(--line);border-radius:9px;padding:8px 10px;
+    font:inherit;font-size:13px;background:var(--paper);color:var(--ink);
+    margin-bottom:10px;cursor:pointer;appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;
+  }
+  @media(max-width:620px){
     .picker-modal{align-items:flex-end;padding:0;}
-    .picker-sheet{border-radius:20px 20px 0 0;max-width:100%;max-height:90vh;}
+    .picker-sheet{border-radius:20px 20px 0 0;max-width:100%;max-height:92vh;}
+    .picker-split{flex-direction:column;}
+    .picker-specials-col{width:auto;flex:0 0 auto;max-height:36vh;border-right:none;border-bottom:1px solid var(--line);}
   }
   .btn{
     appearance:none;font:inherit;font-family:var(--display);font-weight:800;cursor:pointer;
@@ -321,7 +341,7 @@
     </footer>
   </div>
 
-  <div class="picker-modal" id="pickerModal" role="dialog" aria-modal="true" aria-label="Choose an MP" hidden>
+  <div class="picker-modal" id="pickerModal" role="dialog" aria-modal="true" aria-label="Choose" hidden>
     <div class="picker-backdrop" id="pickerBackdrop"></div>
     <div class="picker-sheet">
       <div class="picker-header">
@@ -331,16 +351,31 @@
         </div>
         <button class="picker-close" id="pickerClose" aria-label="Close picker">&#x2715;</button>
       </div>
-      <div class="picker-body">
-        <div class="search">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input id="pickerSearch" type="search" placeholder="Search by name or seat" autocomplete="off" aria-label="Search MPs">
+      <div class="picker-split">
+        <!-- Left: Special Guests -->
+        <div class="picker-specials-col">
+          <div class="picker-col-header">Special Guests</div>
+          <div class="picker-list-wrap">
+            <div class="mp-list" id="specialList"></div>
+          </div>
         </div>
-        <p class="mp-meta" id="mpMeta">Loading…</p>
-      </div>
-      <div class="picker-list-wrap">
-        <div class="mp-list" id="mpList">
-          <div class="state"><strong>Loading current Labour MPs</strong><br>Pulling the latest list from Parliament…</div>
+        <!-- Right: MPs -->
+        <div class="picker-mps-col">
+          <div class="picker-body">
+            <select id="mpPartyFilter" class="party-filter" aria-label="Filter by party">
+              <option value="all">All parties</option>
+            </select>
+            <div class="search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input id="pickerSearch" type="search" placeholder="Search by name or constituency" autocomplete="off" aria-label="Search MPs">
+            </div>
+            <p class="mp-meta" id="mpMeta">Loading…</p>
+          </div>
+          <div class="picker-list-wrap">
+            <div class="mp-list" id="mpList">
+              <div class="state"><strong>Loading MPs</strong><br>Pulling the latest list from Parliament…</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -448,7 +483,9 @@
   var els = {
     cabinet: document.getElementById("cabinet"),
     mpList: document.getElementById("mpList"),
+    specialList: document.getElementById("specialList"),
     mpMeta: document.getElementById("mpMeta"),
+    partyFilter: document.getElementById("mpPartyFilter"),
     search: document.getElementById("pickerSearch"),
     pickerModal: document.getElementById("pickerModal"),
     pickerRoleTitle: document.getElementById("pickerRoleTitle"),
@@ -575,15 +612,12 @@
       party: party
     };
   }
-  function isLabour(m){ return /labour/i.test(m.party); }
-
   function buildList(rawItems){
     var seen = {};
     var out = [];
     rawItems.forEach(function(it){
       var m = toMP(it);
       if(!m.id || seen[m.id]) return;
-      if(!isLabour(m)) return;
       seen[m.id] = true;
       m.surname = surnameOf(m.name);
       m.initials = initialsOf(m.name);
@@ -597,25 +631,37 @@
     return out;
   }
 
+  function populatePartyFilter(list){
+    var seen = {};
+    var parties = [];
+    list.forEach(function(m){
+      if(m.party && !seen[m.party]){ seen[m.party] = true; parties.push(m.party); }
+    });
+    parties.sort(function(a,b){ return a < b ? -1 : 1; });
+    els.partyFilter.innerHTML = '<option value="all">All parties</option>';
+    parties.forEach(function(p){
+      var opt = document.createElement("option");
+      opt.value = p; opt.textContent = p;
+      els.partyFilter.appendChild(opt);
+    });
+  }
+
   function loadMPs(){
     els.mpMeta.textContent = "Loading…";
-    // Primary: filter to Labour party server-side (PartyId 15).
-    loadAll({House:1, IsCurrentMember:true, PartyId:15}).then(function(items){
-      var list = buildList(items);
-      if(list.length >= 200) return list;
-      // Fallback: full Commons sweep, filter by party name.
-      return loadAll({House:1, IsCurrentMember:true}).then(buildList);
+    loadAll({House:1, IsCurrentMember:true}).then(function(items){
+      return buildList(items);
     }).then(function(list){
       mps = list;
       byId = {};
       mps.forEach(function(m){ byId[m.id] = m; });
       SPECIAL_PICKS.forEach(function(m){ byId[m.id] = m; });
+      populatePartyFilter(mps);
       applyPending();
       renderCabinet();
       updateStatus();
       renderMPs("");
       updateURL();
-      els.mpMeta.textContent = mps.length + " current Labour MPs";
+      els.mpMeta.textContent = mps.length + " current MPs";
     }).catch(function(err){
       els.mpMeta.textContent = "";
       els.mpList.innerHTML =
@@ -655,35 +701,39 @@
 
   function renderMPs(query){
     var q = (query||"").trim().toLowerCase();
+    var party = els.partyFilter ? els.partyFilter.value : "all";
     var used = usedMpIds();
-    var frag = document.createDocumentFragment();
 
-    // Special picks pinned at top
-    var specials = SPECIAL_PICKS.filter(function(m){
-      return !q || m.name.toLowerCase().indexOf(q) !== -1 || m.con.toLowerCase().indexOf(q) !== -1;
-    });
-    if(specials.length){
-      var hdr = document.createElement("div");
-      hdr.className = "mp-special-header";
-      hdr.textContent = "Special picks";
-      frag.appendChild(hdr);
-      specials.forEach(function(m){ frag.appendChild(makeMpButton(m, used)); });
-      var divider = document.createElement("div");
-      divider.className = "mp-section-divider";
-      frag.appendChild(divider);
+    // Left panel: Special Guests (filtered by search only)
+    if(els.specialList){
+      var sfrag = document.createDocumentFragment();
+      var specials = SPECIAL_PICKS.filter(function(m){
+        return !q || m.name.toLowerCase().indexOf(q) !== -1 || (m.con||"").toLowerCase().indexOf(q) !== -1;
+      });
+      if(specials.length === 0){
+        var noSpec = document.createElement("div");
+        noSpec.className = "state"; noSpec.textContent = "No matches";
+        sfrag.appendChild(noSpec);
+      } else {
+        specials.forEach(function(m){ sfrag.appendChild(makeMpButton(m, used)); });
+      }
+      els.specialList.innerHTML = "";
+      els.specialList.appendChild(sfrag);
     }
 
-    // Regular MPs
+    // Right panel: MPs filtered by party + search
+    var frag = document.createDocumentFragment();
     var shown = 0;
     mps.forEach(function(m){
+      if(party !== "all" && m.party !== party) return;
       if(q && m.name.toLowerCase().indexOf(q) === -1 && m.con.toLowerCase().indexOf(q) === -1) return;
       shown++;
       frag.appendChild(makeMpButton(m, used));
     });
-
     els.mpList.innerHTML = "";
-    if(shown === 0 && specials.length === 0){
-      els.mpList.innerHTML = '<div class="state">No MPs match \u201c'+escapeHtml(query)+'\u201d.</div>';
+    if(shown === 0){
+      var msg = q ? "No MPs match \u201c"+escapeHtml(query)+"\u201d." : "No MPs in this party.";
+      els.mpList.innerHTML = '<div class="state">'+msg+'</div>';
     } else {
       els.mpList.appendChild(frag);
     }
@@ -721,7 +771,7 @@
       if(mp){
         var mpThumb = mp.photo || THUMB(mp.id);
         avatar = '<span class="role-avatar"><img alt="" src="'+mpThumb+'" onerror="this.style.display=\'none\';this.parentNode.innerHTML=\'<span class=&quot;initials&quot;>'+mp.initials+'</span>\'"></span>';
-        name = '<span class="role-name">'+escapeHtml(mp.name)+'</span>';
+        name = '<span class="role-name">'+escapeHtml(stripHonorific(mp.name))+'</span>';
       } else {
         avatar = '<span class="role-avatar empty">+</span>';
         name = '<span class="role-name placeholder">Tap to choose</span>';
@@ -840,6 +890,11 @@
     var b = e.target.closest("[data-mp]");
     if(b){ assign(parseInt(b.getAttribute("data-mp"),10)); closePicker(); }
   });
+  els.specialList.addEventListener("click", function(e){
+    var b = e.target.closest("[data-mp]");
+    if(b){ assign(parseInt(b.getAttribute("data-mp"),10)); closePicker(); }
+  });
+  els.partyFilter.addEventListener("change", function(){ renderMPs(els.search.value); });
   els.pickerClose.addEventListener("click", closePicker);
   els.pickerBackdrop.addEventListener("click", closePicker);
   document.addEventListener("keydown", function(e){
