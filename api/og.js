@@ -94,7 +94,6 @@ var SPECIAL = {
   '-50': { name: 'Jamie Laing',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Jaime_Laing_at_SXSW_London_2025.jpg/330px-Jaime_Laing_at_SXSW_London_2025.jpg' },
   '-51': { name: 'Judge Rinder',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/en/6/66/Judge_rinder.jpg' },
   '-52': { name: 'Danny Dyer',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Danny_Dyer_at_BAFTAs_2026_02.jpg/330px-Danny_Dyer_at_BAFTAs_2026_02.jpg' },
-  '-53': { name: 'Brooklyn Beckham',      thumbUrl: null },
   '-54': { name: 'Princess Diana',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Diana%2C_Princess_of_Wales_1997_%282%29.jpg/330px-Diana%2C_Princess_of_Wales_1997_%282%29.jpg' },
   '-55': { name: 'George Orwell',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/330px-George_Orwell_press_photo.jpg' },
   '-56': { name: 'Sir Isaac Newton',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg/330px-Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg' },
@@ -190,7 +189,8 @@ var SPECIAL = {
   '-147': { name: 'Tim Key',                thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/2025_01_25_Sundance_Film_Festival-41_Full_%28cropped%29.jpg/330px-2025_01_25_Sundance_Film_Festival-41_Full_%28cropped%29.jpg' },
   '-148': { name: 'Judi Love',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Judi_Love_at_BAFTAs_2026_02.jpg/330px-Judi_Love_at_BAFTAs_2026_02.jpg' },
   '-149': { name: 'Alan Partridge',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Alan_Partridge_booksigning_%28cropped%29.png' },
-  '-150': { name: 'David Brent',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/David_Brent_111.jpg/330px-David_Brent_111.jpg' }
+  '-150': { name: 'David Brent',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/David_Brent_111.jpg/330px-David_Brent_111.jpg' },
+  '-151': { name: 'Clavicular',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Clavicular_mugshot_March_2026.jpg/330px-Clavicular_mugshot_March_2026.jpg' }
 };
 
 async function fetchMP(id) {
