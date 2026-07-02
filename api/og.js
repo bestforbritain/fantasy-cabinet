@@ -100,7 +100,31 @@ var SPECIAL = {
   '-56': { name: 'Sir Isaac Newton',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg/330px-Portrait_of_Sir_Isaac_Newton%2C_1689_%28brightened%29.jpg' },
   '-57': { name: 'Jedward',               thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Jedward-original.jpg/330px-Jedward-original.jpg' },
   '-58': { name: 'Liam Gallagher',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/OasisCardiff040725-88_-_54640244776_%28landscape_crop%29_%28cropped%29.jpg/330px-OasisCardiff040725-88_-_54640244776_%28landscape_crop%29_%28cropped%29.jpg' },
-  '-59': { name: 'Noel Gallagher',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Noel_Gallagher_Glastonbury_2022_%28cropped%29.jpg/330px-Noel_Gallagher_Glastonbury_2022_%28cropped%29.jpg' }
+  '-59': { name: 'Noel Gallagher',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Noel_Gallagher_Glastonbury_2022_%28cropped%29.jpg/330px-Noel_Gallagher_Glastonbury_2022_%28cropped%29.jpg' },
+  '-60': { name: 'Michael Sheen',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Michael_Sheen_at_PaleyFest_2014.jpg/330px-Michael_Sheen_at_PaleyFest_2014.jpg' },
+  '-61': { name: 'Tom Jones',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/Sir_Tom_Jones_at_The_Queen%27s_Birthday_Party_%28cropped-2%29.jpg' },
+  '-62': { name: 'Catherine Zeta-Jones',   thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Catherine_Zeta-Jones_2025.png/330px-Catherine_Zeta-Jones_2025.png' },
+  '-63': { name: 'Charlotte Church',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Charlotte_Church_Focus_Wales_2013.jpg/330px-Charlotte_Church_Focus_Wales_2013.jpg' },
+  '-64': { name: 'Rob Brydon',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Rob_Brydon_at_BAFTAs_2026_02.jpg/330px-Rob_Brydon_at_BAFTAs_2026_02.jpg' },
+  '-65': { name: 'Liam Neeson',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Liam_Neeson_Deauville_2012_2.jpg/330px-Liam_Neeson_Deauville_2012_2.jpg' },
+  '-66': { name: 'Kenneth Branagh',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Kenneth_Branagh_at_diff_2015.jpg/330px-Kenneth_Branagh_at_diff_2015.jpg' },
+  '-67': { name: 'Jamie Dornan',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Jamie_Dornan_January_2013.jpg/330px-Jamie_Dornan_January_2013.jpg' },
+  '-68': { name: 'Rory McIlroy',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Rory_McIlroy_Ryder_Cup_2025-195_%28cropped%29.jpg/330px-Rory_McIlroy_Ryder_Cup_2025-195_%28cropped%29.jpg' },
+  '-69': { name: 'James Nesbitt',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/James_Nesbitt_2013.jpg' },
+  '-70': { name: 'David Tennant',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/David_Tennant_-_Los_Angeles_Comic_Con_2025.jpg/330px-David_Tennant_-_Los_Angeles_Comic_Con_2025.jpg' },
+  '-71': { name: 'Lewis Capaldi',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Glasto2025-41_%28cropped%29.jpg/330px-Glasto2025-41_%28cropped%29.jpg' },
+  '-72': { name: 'Billy Connolly',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Billy_Connolly_Festival_Cine_Sidney.jpg/330px-Billy_Connolly_Festival_Cine_Sidney.jpg' },
+  '-73': { name: 'Lorraine Kelly',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Lorraine_Kelly_at_BAFTAs_2026_02.jpg/330px-Lorraine_Kelly_at_BAFTAs_2026_02.jpg' },
+  '-74': { name: 'Ewan McGregor',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ewan_McGregor_-_Los_Angeles_Comic_Con_2024.jpg/330px-Ewan_McGregor_-_Los_Angeles_Comic_Con_2024.jpg' },
+  '-75': { name: 'Maro Itoje',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/USO_-_Saracens_-_20151213_-_Maro_Itoje.jpg/330px-USO_-_Saracens_-_20151213_-_Maro_Itoje.jpg' },
+  '-76': { name: 'Bruno Tonioli',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bruno_Tonioli_in_2015.jpg/330px-Bruno_Tonioli_in_2015.jpg' },
+  '-77': { name: 'Robert Peston',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Robert_Peston%2C_2016_Labour_Party_Conference.jpg/330px-Robert_Peston%2C_2016_Labour_Party_Conference.jpg' },
+  '-78': { name: 'Piers Morgan',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/The_Prime_Minister_is_interviewed_by_Piers_Morgan_%28cropped3%29.jpg/330px-The_Prime_Minister_is_interviewed_by_Piers_Morgan_%28cropped3%29.jpg' },
+  '-79': { name: 'Camilla Tominey',        thumbUrl: null },
+  '-80': { name: 'Marina Hyde',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Marina_Hyde_at_the_British_Library.jpg/330px-Marina_Hyde_at_the_British_Library.jpg' },
+  '-81': { name: 'Laura Kuenssberg',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Laura_Kuenssberg_Cicero_2012.jpg/330px-Laura_Kuenssberg_Cicero_2012.jpg' },
+  '-82': { name: 'Pierce Brosnan',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/PierceBrosnan-byPhilipRomano.jpg/330px-PierceBrosnan-byPhilipRomano.jpg' },
+  '-83': { name: 'Emily Maitlis',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Emily_Maitlis_Reporting_from_Leadership_Debate_Bristol_2010.jpg/330px-Emily_Maitlis_Reporting_from_Leadership_Debate_Bristol_2010.jpg' }
 };
 
 async function fetchMP(id) {
