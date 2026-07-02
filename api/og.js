@@ -230,7 +230,16 @@ var SPECIAL = {
   '-192': { name: 'Annie Lennox',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Annie_Lennox_March_2023.jpg/330px-Annie_Lennox_March_2023.jpg' },
   '-193': { name: 'Raye',                   thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Raye8888.jpg/330px-Raye8888.jpg' },
   '-194': { name: 'Theresa May',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Official_portrait_of_Baroness_May_of_Maidenhead_crop_2.jpg/330px-Official_portrait_of_Baroness_May_of_Maidenhead_crop_2.jpg' },
-  '-195': { name: 'Caroline Lucas',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Official_portrait_of_Caroline_Lucas_MP_crop_2.jpg/330px-Official_portrait_of_Caroline_Lucas_MP_crop_2.jpg' }
+  '-195': { name: 'Caroline Lucas',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Official_portrait_of_Caroline_Lucas_MP_crop_2.jpg/330px-Official_portrait_of_Caroline_Lucas_MP_crop_2.jpg' },
+  '-196': { name: 'Ruth Bader Ginsburg',    thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Ruth_Bader_Ginsburg_2016_portrait.jpg/330px-Ruth_Bader_Ginsburg_2016_portrait.jpg' },
+  '-197': { name: 'Angela Merkel',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Angela_Merkel_2019_cropped.jpg/330px-Angela_Merkel_2019_cropped.jpg' },
+  '-198': { name: 'Eleanor Roosevelt',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Eleanor_Roosevelt_at_the_United_Nations%2C_circa_1946-1947_%283x4_cropped%29.jpg/330px-Eleanor_Roosevelt_at_the_United_Nations%2C_circa_1946-1947_%283x4_cropped%29.jpg' },
+  '-199': { name: 'Boudicca',               thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Queen_Boudica_by_John_Opie.jpg/330px-Queen_Boudica_by_John_Opie.jpg' },
+  '-200': { name: 'Mary Shelley',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Mary_Wollstonecraft_Shelley_Rothwell.tif/lossy-page1-330px-Mary_Wollstonecraft_Shelley_Rothwell.tif.jpg' },
+  '-201': { name: 'Mary Wollstonecraft',    thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Mary_Wollstonecraft_Portrait.jpg/330px-Mary_Wollstonecraft_Portrait.jpg' },
+  '-202': { name: 'Agatha Christie',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Agatha_Christie_in_Nederland_%28detectiveschrijfster%29%2C_bij_aankomst_op_Schiphol_me%2C_Bestanddeelnr_916-8898_%28cropped%29.jpg/330px-Agatha_Christie_in_Nederland_%28detectiveschrijfster%29%2C_bij_aankomst_op_Schiphol_me%2C_Bestanddeelnr_916-8898_%28cropped%29.jpg' },
+  '-203': { name: 'Mary Beard',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Mary_Beard_UC3M_2017_%28cropped%29.JPG/330px-Mary_Beard_UC3M_2017_%28cropped%29.JPG' },
+  '-204': { name: 'Lucy Worsley',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Lucy_Worsley_2019.jpg/330px-Lucy_Worsley_2019.jpg' }
 };
 
 async function fetchMP(id) {
