@@ -228,7 +228,9 @@ var SPECIAL = {
   '-190': { name: 'Victoria Wood',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Victoria_Wood.jpg/330px-Victoria_Wood.jpg' },
   '-191': { name: 'Kate Bush',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Kate_Bush_Hounds_of_Love_%281985_EMI_publicity_photo%29_02_%28cropped%29.jpg/330px-Kate_Bush_Hounds_of_Love_%281985_EMI_publicity_photo%29_02_%28cropped%29.jpg' },
   '-192': { name: 'Annie Lennox',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Annie_Lennox_March_2023.jpg/330px-Annie_Lennox_March_2023.jpg' },
-  '-193': { name: 'Raye',                   thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Raye8888.jpg/330px-Raye8888.jpg' }
+  '-193': { name: 'Raye',                   thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Raye8888.jpg/330px-Raye8888.jpg' },
+  '-194': { name: 'Theresa May',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Official_portrait_of_Baroness_May_of_Maidenhead_crop_2.jpg/330px-Official_portrait_of_Baroness_May_of_Maidenhead_crop_2.jpg' },
+  '-195': { name: 'Caroline Lucas',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Official_portrait_of_Caroline_Lucas_MP_crop_2.jpg/330px-Official_portrait_of_Caroline_Lucas_MP_crop_2.jpg' }
 };
 
 async function fetchMP(id) {
