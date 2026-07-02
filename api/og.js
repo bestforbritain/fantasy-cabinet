@@ -200,7 +200,9 @@ var SPECIAL = {
   '-162': { name: 'Banksy',                 thumbUrl: 'https://upload.wikimedia.org/wikipedia/en/3/3f/Banksy-ps2.jpg' },
   '-163': { name: 'Dr. Helen Sharman',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Dr._Helen_Sharman_%28cropped%29.jpg/330px-Dr._Helen_Sharman_%28cropped%29.jpg' },
   '-164': { name: 'Tim Peake',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Timothy_Peake%2C_official_portrait.jpg/330px-Timothy_Peake%2C_official_portrait.jpg' },
-  '-165': { name: 'Thomas Tuchel',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg/330px-Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg' }
+  '-165': { name: 'Thomas Tuchel',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg/330px-Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg' },
+  '-166': { name: 'Jeremy Clarkson',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Jeremy_Clarkson%2C_Top_Gear_Live_2012_%284x5_cropped%29.jpg/330px-Jeremy_Clarkson%2C_Top_Gear_Live_2012_%284x5_cropped%29.jpg' },
+  '-167': { name: 'Kaleb Cooper',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Rishi_Sunak_speaks_with_Kaleb_Cooper_%28cropped%29.jpg/330px-Rishi_Sunak_speaks_with_Kaleb_Cooper_%28cropped%29.jpg' }
 };
 
 async function fetchMP(id) {
