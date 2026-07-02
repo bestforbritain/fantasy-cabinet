@@ -149,12 +149,10 @@ var SPECIAL = {
   '-107': { name: 'William Shakespeare',   thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/William_Shakespeare_by_John_Taylor%2C_edited.jpg/330px-William_Shakespeare_by_John_Taylor%2C_edited.jpg' },
   '-108': { name: 'Charles Darwin',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Charles_Darwin_seated_crop.jpg/330px-Charles_Darwin_seated_crop.jpg' },
   '-109': { name: 'Jane Austen',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/CassandraAusten-JaneAusten%28c.1810%29_hires.jpg/330px-CassandraAusten-JaneAusten%28c.1810%29_hires.jpg' },
-  '-110': { name: 'Charles Dickens',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Dickens_Gurney_head.jpg/330px-Dickens_Gurney_head.jpg' },
   '-111': { name: 'Queen Elizabeth I',     thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Darnley_stage_3.jpg/330px-Darnley_stage_3.jpg' },
   '-112': { name: 'Queen Victoria',        thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Queen_Victoria_by_Bassano.jpg/330px-Queen_Victoria_by_Bassano.jpg' },
   '-113': { name: 'Alan Turing',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Alan_turing_header.jpg/330px-Alan_turing_header.jpg' },
   '-114': { name: 'Ada Lovelace',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png/330px-Ada_Lovelace_daguerreotype_by_Antoine_Claudet_1843_-_cropped.png' },
-  '-115': { name: 'Stephen Hawking',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/e/eb/Stephen_Hawking.StarChild.jpg' },
   '-116': { name: 'Florence Nightingale',  thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg/330px-Florence_Nightingale_%28H_Hering_NPG_x82368%29.jpg' },
   '-117': { name: 'Emmeline Pankhurst',    thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Emmeline_Pankhurst%2C_seated_%281913%29.jpg/330px-Emmeline_Pankhurst%2C_seated_%281913%29.jpg' },
   '-118': { name: 'Isambard Kingdom Brunel', thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Robert_Howlett_%28Isambard_Kingdom_Brunel_Standing_Before_the_Launching_Chains_of_the_Great_Eastern%29%2C_The_Metropolitan_Museum_of_Art_-_restoration1.jpg/330px-Robert_Howlett_%28Isambard_Kingdom_Brunel_Standing_Before_the_Launching_Chains_of_the_Great_Eastern%29%2C_The_Metropolitan_Museum_of_Art_-_restoration1.jpg' },
@@ -182,7 +180,6 @@ var SPECIAL = {
   '-140': { name: 'Bez',                    thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bez-2007.jpg/330px-Bez-2007.jpg' },
   '-141': { name: 'Timmy Mallett',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Timmymallettcropped.jpg/330px-Timmymallettcropped.jpg' },
   '-142': { name: 'Su Pollard',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/c/c3/Supollard1.jpg' },
-  '-143': { name: 'Keith Lemon',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Keith_Lemon_%288464862242%29_%28cropped%29.jpg/330px-Keith_Lemon_%288464862242%29_%28cropped%29.jpg' },
   '-144': { name: 'Jenny Eclair',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Jennyeclair.jpg/330px-Jennyeclair.jpg' },
   '-145': { name: 'Iain Stirling',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Ian_Stirling_at_BAFTA_2026_01.jpg/330px-Ian_Stirling_at_BAFTA_2026_01.jpg' },
   '-146': { name: 'Ainsley Harriott',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Ainsley_Harriott.jpg/330px-Ainsley_Harriott.jpg' },
@@ -190,7 +187,20 @@ var SPECIAL = {
   '-148': { name: 'Judi Love',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Judi_Love_at_BAFTAs_2026_02.jpg/330px-Judi_Love_at_BAFTAs_2026_02.jpg' },
   '-149': { name: 'Alan Partridge',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Alan_Partridge_booksigning_%28cropped%29.png' },
   '-150': { name: 'David Brent',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/David_Brent_111.jpg/330px-David_Brent_111.jpg' },
-  '-151': { name: 'Clavicular',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Clavicular_mugshot_March_2026.jpg/330px-Clavicular_mugshot_March_2026.jpg' }
+  '-152': { name: 'Katherine Ryan',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Katherine_Ryan.png/330px-Katherine_Ryan.png' },
+  '-153': { name: 'Diane Morgan',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Diane_Morgan_x_Candid_Portraits_Ltd.jpg/330px-Diane_Morgan_x_Candid_Portraits_Ltd.jpg' },
+  '-154': { name: 'Lolly Adefope',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/LollyAdefope-byPhilipRomano.jpg/330px-LollyAdefope-byPhilipRomano.jpg' },
+  '-155': { name: 'David Hockney',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/David_Hockney_in_Washington_Square_Park_%281977%29.jpg/330px-David_Hockney_in_Washington_Square_Park_%281977%29.jpg' },
+  '-156': { name: 'Candice Carty-Williams',  thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Candice_Carty-Williams.jpg/330px-Candice_Carty-Williams.jpg' },
+  '-157': { name: 'Zadie Smith',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Zadie_Smith_NBCC_2011_Shankbone.jpg/330px-Zadie_Smith_NBCC_2011_Shankbone.jpg' },
+  '-158': { name: 'Sarah Waters',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Sarah_Waters.jpg/330px-Sarah_Waters.jpg' },
+  '-159': { name: 'Kazuo Ishiguro',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/MKr377543_Kazuo_Ishiguro_%28A_Pale_View_of_Hills%2C_Cannes_2025%29.jpg/330px-MKr377543_Kazuo_Ishiguro_%28A_Pale_View_of_Hills%2C_Cannes_2025%29.jpg' },
+  '-160': { name: 'Ian McEwan',             thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/IanMcEwan_EIBF2025_i481.jpg/330px-IanMcEwan_EIBF2025_i481.jpg' },
+  '-161': { name: 'Anish Kapoor',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Anish_Kapoor_2017.jpg/330px-Anish_Kapoor_2017.jpg' },
+  '-162': { name: 'Banksy',                 thumbUrl: 'https://upload.wikimedia.org/wikipedia/en/3/3f/Banksy-ps2.jpg' },
+  '-163': { name: 'Dr. Helen Sharman',      thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Dr._Helen_Sharman_%28cropped%29.jpg/330px-Dr._Helen_Sharman_%28cropped%29.jpg' },
+  '-164': { name: 'Tim Peake',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Timothy_Peake%2C_official_portrait.jpg/330px-Timothy_Peake%2C_official_portrait.jpg' },
+  '-165': { name: 'Thomas Tuchel',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg/330px-Thomas_Tuchel_England_v_Ghana_23_June_2026-081.jpg' }
 };
 
 async function fetchMP(id) {
