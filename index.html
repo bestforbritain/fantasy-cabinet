@@ -361,6 +361,11 @@
         <!-- Left: Special Guests -->
         <div class="picker-specials-col">
           <div class="picker-col-header">Special Guests</div>
+          <div class="picker-body">
+            <select id="specialCatFilter" class="party-filter" aria-label="Filter special guests by category">
+              <option value="all">All categories</option>
+            </select>
+          </div>
           <div class="picker-list-wrap">
             <div class="mp-list" id="specialList"></div>
           </div>
@@ -555,6 +560,51 @@
     {id:-134,name:"Dame Mary Berry",       con:"Cook & Broadcaster",             initials:"MB", photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Mary_Berry_at_Chelsea_Flower_Show_-_2017_-_%2834039048853%29_%28cropped%29.jpg/330px-Mary_Berry_at_Chelsea_Flower_Show_-_2017_-_%2834039048853%29_%28cropped%29.jpg"}
   ];
 
+  // Category filter for special guests. Ordered as they appear in the dropdown.
+  var SPECIAL_CATEGORIES = [
+    ["actor",    "Actors & Film"],
+    ["music",    "Musicians"],
+    ["sport",    "Sport"],
+    ["comedy",   "Comedy"],
+    ["media",    "TV, Radio & Media"],
+    ["writers",  "Writers & Artists"],
+    ["politics", "Politics & Public Life"],
+    ["royalty",  "Royalty"],
+    ["scihist",  "Science & History"],
+    ["other",    "Other"]
+  ];
+  // One primary category per special guest (keyed by id).
+  var SPECIAL_CATS = {
+    "-1":"politics","-2":"media","-3":"media","-4":"media","-5":"sport",
+    "-6":"media","-7":"actor","-8":"actor","-9":"actor","-10":"media",
+    "-11":"media","-12":"media","-13":"comedy","-14":"media","-15":"comedy",
+    "-16":"sport","-17":"media","-18":"comedy","-19":"media","-20":"music",
+    "-21":"media","-22":"media","-23":"music","-24":"music","-25":"music",
+    "-26":"music","-27":"actor","-28":"writers","-29":"actor","-30":"music",
+    "-31":"sport","-32":"politics","-33":"media","-34":"comedy","-35":"comedy",
+    "-36":"media","-37":"actor","-38":"music","-39":"media","-40":"media",
+    "-41":"scihist","-42":"media","-43":"other","-44":"sport","-45":"media",
+    "-46":"media","-47":"politics","-48":"politics","-49":"politics","-50":"media",
+    "-51":"media","-52":"actor","-53":"other","-54":"royalty","-55":"writers",
+    "-56":"scihist","-57":"music","-58":"music","-59":"music","-60":"actor",
+    "-61":"music","-62":"actor","-63":"music","-64":"comedy","-65":"actor",
+    "-66":"actor","-67":"actor","-68":"sport","-69":"actor","-70":"actor",
+    "-71":"music","-73":"media","-74":"actor","-75":"sport","-76":"media",
+    "-77":"media","-78":"media","-79":"politics","-80":"writers","-81":"media",
+    "-82":"actor","-83":"media","-84":"actor","-85":"sport","-86":"music",
+    "-87":"actor","-88":"actor","-89":"actor","-90":"comedy","-91":"media",
+    "-92":"sport","-93":"music","-94":"actor","-95":"actor","-96":"media",
+    "-97":"music","-98":"actor","-99":"sport","-100":"actor","-101":"comedy",
+    "-102":"media","-103":"politics","-104":"actor","-105":"actor","-106":"sport",
+    "-107":"writers","-108":"scihist","-109":"writers","-110":"writers","-111":"royalty",
+    "-112":"royalty","-113":"scihist","-114":"scihist","-115":"scihist","-116":"scihist",
+    "-117":"politics","-118":"scihist","-119":"politics","-120":"scihist","-121":"music",
+    "-122":"music","-123":"royalty","-124":"actor","-125":"actor","-126":"actor",
+    "-127":"actor","-128":"actor","-129":"music","-130":"sport","-131":"sport",
+    "-132":"sport","-133":"comedy","-134":"media"
+  };
+  SPECIAL_PICKS.forEach(function(m){ m.cat = SPECIAL_CATS[String(m.id)] || "other"; });
+
   var mps = [];            // {id,name,con,surname,initials}
   var byId = {};
   var assignments = {};    // roleId -> mpId
@@ -566,6 +616,7 @@
     specialList: document.getElementById("specialList"),
     mpMeta: document.getElementById("mpMeta"),
     partyFilter: document.getElementById("mpPartyFilter"),
+    catFilter: document.getElementById("specialCatFilter"),
     search: document.getElementById("pickerSearch"),
     pickerModal: document.getElementById("pickerModal"),
     pickerRoleTitle: document.getElementById("pickerRoleTitle"),
@@ -726,6 +777,20 @@
     });
   }
 
+  function populateCatFilter(){
+    if(!els.catFilter) return;
+    // Only show categories that actually have at least one special guest.
+    var present = {};
+    SPECIAL_PICKS.forEach(function(m){ present[m.cat] = true; });
+    els.catFilter.innerHTML = '<option value="all">All categories</option>';
+    SPECIAL_CATEGORIES.forEach(function(c){
+      if(!present[c[0]]) return;
+      var opt = document.createElement("option");
+      opt.value = c[0]; opt.textContent = c[1];
+      els.catFilter.appendChild(opt);
+    });
+  }
+
   function loadMPs(){
     els.mpMeta.textContent = "Loading…";
     loadAll({House:1, IsCurrentMember:true}).then(function(items){
@@ -786,8 +851,10 @@
 
     // Left panel: Special Guests (filtered by search only)
     if(els.specialList){
+      var cat = els.catFilter ? els.catFilter.value : "all";
       var sfrag = document.createDocumentFragment();
       var specials = SPECIAL_PICKS.filter(function(m){
+        if(cat !== "all" && m.cat !== cat) return false;
         return !q || m.name.toLowerCase().indexOf(q) !== -1 || (m.con||"").toLowerCase().indexOf(q) !== -1;
       }).sort(function(a,b){
         var sa = surnameOf(a.name), sb = surnameOf(b.name);
@@ -980,6 +1047,7 @@
     if(b){ assign(parseInt(b.getAttribute("data-mp"),10)); closePicker(); }
   });
   els.partyFilter.addEventListener("change", function(){ renderMPs(els.search.value); });
+  if(els.catFilter) els.catFilter.addEventListener("change", function(){ renderMPs(els.search.value); });
   els.pickerClose.addEventListener("click", closePicker);
   els.pickerBackdrop.addEventListener("click", closePicker);
   document.addEventListener("keydown", function(e){
@@ -1209,6 +1277,7 @@
 
   // ---------- init ----------
   pendingURL = readURLState();
+  populateCatFilter();
   renderCabinet();
   updateStatus();
   loadMPs();
