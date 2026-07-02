@@ -120,7 +120,7 @@ var SPECIAL = {
   '-76': { name: 'Bruno Tonioli',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Bruno_Tonioli_in_2015.jpg/330px-Bruno_Tonioli_in_2015.jpg' },
   '-77': { name: 'Robert Peston',          thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Robert_Peston%2C_2016_Labour_Party_Conference.jpg/330px-Robert_Peston%2C_2016_Labour_Party_Conference.jpg' },
   '-78': { name: 'Piers Morgan',           thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/The_Prime_Minister_is_interviewed_by_Piers_Morgan_%28cropped3%29.jpg/330px-The_Prime_Minister_is_interviewed_by_Piers_Morgan_%28cropped3%29.jpg' },
-  '-79': { name: 'Camilla Tominey',        thumbUrl: null },
+  '-79': { name: 'Liz Truss',              thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Official_portrait_of_Liz_Truss_%283x4_cropped_b%29.jpg/330px-Official_portrait_of_Liz_Truss_%283x4_cropped_b%29.jpg' },
   '-80': { name: 'Marina Hyde',            thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Marina_Hyde_at_the_British_Library.jpg/330px-Marina_Hyde_at_the_British_Library.jpg' },
   '-81': { name: 'Laura Kuenssberg',       thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Laura_Kuenssberg_Cicero_2012.jpg/330px-Laura_Kuenssberg_Cicero_2012.jpg' },
   '-82': { name: 'Pierce Brosnan',         thumbUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/PierceBrosnan-byPhilipRomano.jpg/330px-PierceBrosnan-byPhilipRomano.jpg' },
